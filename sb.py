@@ -34,6 +34,21 @@ while True:
             #if op.type in OpType._VALUES_TO_NAMES:
             #    print("[ {} ] {}".format(str(op.type), str(OpType._VALUES_TO_NAMES[op.type])))
 #=========================================================================================================================================#
+           if op.type == 13:
+               if client in op.param3:
+                   if Setmain["RAautojoin"] == True:
+                       if Setmain["RAbatas"]["on"] == True:
+                           G = cl.getGroup(op.param1)
+                           if len(G.members) > Setmain["RAbatas"]["members"]:
+                               cl.acceptGroupInvitation(op.param1)
+                               ra = cl.getGroup(op.param1)
+                               cl.sendText(op.param1,"Maaf jumlah member\n " + str(ra.name) + " lebih dari " + str(Setmain["RAbatas"]["members"]))
+                               cl.leaveGroup(op.param1)
+                           else:
+                               cl.acceptGroupInvitation(op.param1)
+                               ra = cl.getGroup(op.param1)
+                               cl.sendMessageWithMention(op.param1, ra.creator.mid,"hallo","\nsalken group creator...")
+                            
             if op.type == 25:
                 msg = op.message
                 text = msg.text
