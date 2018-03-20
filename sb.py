@@ -5,10 +5,9 @@ from gtts import gTTS
 from googletrans import Translator
 
 
-#client = LineClient()
-client = LineClient(id='EMAIL HERE', passwd='PASSWORD HERE')
-#client = LineClient(authToken='AUTH TOKEN')
+client = LINE("Er5FKZsZtqVnoL0i2qPf.F1wnY1P90Xd3CcqTvSoS7W.t1na6vYh8/mOLCRMFixWbsdONvcJjtiv0TEgjalMJvI=")
 client.log("Auth Token : " + str(client.authToken))
+client.log("Timeline Token : " + str(client.tl.channelAccessToken))
 
 channel = LineChannel(client)
 client.log("Channel Access Token : " + str(channel.channelAccessToken))
